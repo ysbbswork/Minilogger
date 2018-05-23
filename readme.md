@@ -21,14 +21,13 @@ Minilogger支持以下内容：
 
 ```c++
 #include "minilogger.h"
-#include<iostream>
 
 int main(){
+    
     Logger<TextDecorator> mylog("mylogfile.txt","this is title!",true,true);//创建logger
+    
     mylog.Log("this is log1.");//打log的方式和在控制台的log一样方便。
-	std::cout << "do something" << std::endl;
-	mylog.Log("done something!");
-	std::cin.get();
+	
     return 0;
 }
 ```
@@ -38,7 +37,6 @@ int main(){
 ```
 [2018.05.23] [19:31:34] Session opened.
 [2018.05.23] [19:31:34] this is log1.
-[2018.05.23] [19:31:34] done something!
 [2018.05.23] [19:31:34] Session closed.
 ```
 
@@ -63,7 +61,7 @@ logger是带一个装饰器的模板参数，默认的装饰器为TextDecorator
 
 默认的装饰器TextDecorator：
 
-```
+```c++
 class TextDecorator
 {
 public:
@@ -98,7 +96,7 @@ Minilogger Is a single-head log library for C++ applications. It is very mini, h
 
 ## Quick Start
 
-```
+```c++
 #include "minilogger.h"
 #include<iostream>
 int main(){
@@ -111,7 +109,7 @@ int main(){
 
 You can customize the format of the log through the text decorator
 
-```
+```c++
 // ============================================================
 // Here is an example of a simple log decorator, you can define your own decorator
 // ============================================================
