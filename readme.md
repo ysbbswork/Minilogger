@@ -92,3 +92,56 @@ public:
 
 ```
 
+# Minilogger
+
+Minilogger Is a single-head log library for C++ applications. It is very mini, highly scalable and can be configured according to user requirements.
+
+## Quick Start
+
+```
+#include "minilogger.h"
+#include<iostream>
+int main(){
+    Logger<TextDecorator> mylog("mylogfile.txt","this is title!",true,true);//creat logger
+    mylog.Log("this is log1.");//log something
+    mylog.Log("this is log2.");//log otherthing
+    return 0;
+}
+```
+
+You can customize the format of the log through the text decorator
+
+```
+// ============================================================
+// Here is an example of a simple log decorator, you can define your own decorator
+// ============================================================
+class TextDecorator
+{
+public:
+	static std::string FileHeader(const std::string& p_title)
+	{
+		return "==================================================\n" +
+			p_title + "\n" +
+			"==================================================\n\n";
+	}
+
+	static std::string SessionOpen()
+	{
+		return "\n";
+	}
+
+	static std::string SessionClose()
+	{
+		return "\n";
+	}
+
+	static std::string Decorate(const std::string& p_string)
+	{
+		return p_string + "\n";
+	}
+};
+
+```
+
+Easy-to-use log classes, called minilogger.
+
