@@ -1,17 +1,29 @@
 # Minilogger
 
-Minilogger这是一个非常小巧的开源的c++日志工具（只有4KB），能实现在程序运行中随时将关键的事件通过log日志的方式保存在log文件中。
+Minilogger这是一个非常小巧的开源的c++日志工具，能实现在程序运行中随时将关键的事件通过log日志的方式保存在log文件中。
 
 使用起来只需要在C++工程中将`minilogger.h`包含进来即可。
 
 Minilogger支持以下内容：
 
 - 自定义输出文件名称格式
+
 - 自定义总日志标题
+
 - 支持多个log文件按需要分类输出
+
 - 可以自定义log的格式和排版
+
 - 支持单日志的开启关闭时间
+
 - 支持每条log记录发生时间
+
+- 使用宏实现（具体详见example.cpp）：
+
+  - 支持输出log的代码位置和函数名称
+  - 支持参数输出到日志
+
+  
 
 # 使用
 
@@ -90,6 +102,21 @@ public:
 
 ```
 
+
+
+example中给出一种结合宏定义的方式输出：
+
+- log所处代码行数
+- log所处的函数名称
+- 打印参数
+
+```
+[2019.03.28] [20:13:11] [example.cpp:main:34][LOG_NORMAL]test for LOG,args: number:[1], string:[yoyoyo]
+[2019.03.28] [20:13:11] [example.cpp:myfunction:24][LOG_NORMAL]this is a log in function,a+b=3
+```
+
+
+
 # Minilogger
 
 Minilogger Is a single-head log library for C++ applications. It is very mini, highly scalable and can be configured according to user requirements.
@@ -142,4 +169,11 @@ public:
 ```
 
 Easy-to-use log classes, called minilogger.
+
+Log example can log function name ,code line, and some args if you need.
+
+```
+[2019.03.28] [20:13:11] [example.cpp:main:34][LOG_NORMAL]test for LOG,args: number:[1], string:[yoyoyo]
+[2019.03.28] [20:13:11] [example.cpp:myfunction:24][LOG_NORMAL]this is a log in function,a+b=3
+```
 
