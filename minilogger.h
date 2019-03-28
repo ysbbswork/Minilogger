@@ -108,7 +108,9 @@ Logger<decorator>::Logger(const std::string& p_filename,
 	bool p_timestamp,
 	bool p_datestamp)
 {
-		
+	// now the tricky part... testing to see if a file is open or not.
+    // stupid C++. You need to open a file in read mode, and if it doesn't
+    // open correctly, you know that it doesn't exist.
 	// a file is open or not.
 	std::fstream filetester(p_filename.c_str(), std::ios::in);
 
